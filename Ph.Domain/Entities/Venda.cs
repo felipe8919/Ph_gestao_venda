@@ -15,6 +15,6 @@ namespace Ph.Domain.Entities
         public TipoFormaPagamento TipoFormaPagamento { get; set; }
         public IEnumerable<ItemProdutoVenda> ItensProduto { get; set; }
         public Cliente Cliente { get; set; }
-        public decimal ObterValorTotal => ItensProduto.Sum(x => x.ValorUnitario * x.Quantidade);
+        public decimal ValorTotal => ItensProduto.Sum(x => x.ValorUnitario * x.Quantidade);
     }
 }

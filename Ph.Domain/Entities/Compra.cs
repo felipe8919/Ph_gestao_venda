@@ -15,7 +15,7 @@ namespace Ph.Domain.Entities
         public Fornecedor Fornecedor { get; set; }
         public IEnumerable<ItemProdutoCompra> ItensProduto { get; set; }
 
-        public decimal ObterValorTotal => ItensProduto.Sum(x => x.ValorUnitario * x.Quantidade);
+        public decimal ValorTotal => ItensProduto.Sum(x => x.ValorUnitario * x.Quantidade);
 
     }
 

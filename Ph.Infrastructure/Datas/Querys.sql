@@ -95,3 +95,28 @@ alter table itemprodutocompra add constraint PK_ITEMPRODUTOCOMPRA PRIMARY KEY (I
 alter table itemprodutocompra add constraint FK_ITEMPRODUTOCOMPRA_PRODUTO FOREIGN KEY (PRODUTOID) REFERENCES PRODUTO(ID);
 alter table itemprodutocompra add constraint FK_ITEMPRODUTOCOMPRA_COMPRA FOREIGN KEY (COMPRAID) REFERENCES COMPRA (ID);
  
+ create table venda (
+    id bigint identity NOT NULL,
+    descontopercentual numeric(18,2) NULL,
+    descontovalor numeric(18,2) NULL,
+    tipoformapagamento smallint NOT NULL,
+    clienteid bigint NOT NULL
+ ) 
+
+ alter table venda add constraint PK_VENDA PRIMARY KEY (ID);
+ alter table venda add constraint FK_VENDA_CLIENTE FOREIGN KEY(CLIENTEID) REFERENCES CLIENTE (ID);          
+ 
+
+ create table itemprodutovenda (
+        id bigint identity NOT NULL,
+        valorunitario numeric(18,2) NOT NULL,
+        quantidade int NOT NULL,
+        produtoid bigint NOT NULL,
+        vendaid bigint NOT NULL
+        
+)
+
+alter table itemprodutovenda add constraint PK_ITEMPRODUTOVENDA PRIMARY KEY (ID);
+alter table itemprodutovenda add constraint FK_ITEMPRODUTOVENDA_PRODUTO FOREIGN KEY (PRODUTOID) REFERENCES PRODUTO(ID);
+alter table itemprodutovenda add constraint FK_ITEMPRODUTOVENDA_VENDA FOREIGN KEY (VENDAID) REFERENCES VENDA (ID);
+ 
