@@ -23,11 +23,12 @@ namespace Ph.Test.Entity
                 CodigoInterno = "875714",
                 ValorUnitario = 150.10M
             };
+          
             estoque.AtribuirQuantidade(2);
 
             estoque.Incrementar(5);
 
-            Assert.True(estoque.Quantidade == 7);
+            Assert.Equal(7, estoque.Quantidade);
         }
     }
 }

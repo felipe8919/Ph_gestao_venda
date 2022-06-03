@@ -16,5 +16,7 @@ namespace Ph.Domain.Entities
         public IEnumerable<ItemProdutoVenda> ItensProduto { get; set; }
         public Cliente Cliente { get; set; }
         public decimal ValorTotal => ItensProduto.Sum(x => x.ValorUnitario * x.Quantidade);
+
+        public bool ContemPeloMenosUmItemProduto => ItensProduto.Any();
     }
 }
